@@ -22,3 +22,6 @@ bootstrap/cache/
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
 >>>>>>> 475395b681edecf843febb8109bcb7f5751ce76a
+
+# phpstorm junk
+*.idea
