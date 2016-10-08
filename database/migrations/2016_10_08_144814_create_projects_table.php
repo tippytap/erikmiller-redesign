@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('link')->nullable();
             $table->string('background')->nullable();
             $table->timestamps();
+            $table->primary('title');
         });
     }
 
