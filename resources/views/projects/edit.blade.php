@@ -23,6 +23,7 @@
                     </div>
                     <div class="col-xs-12">
                         {{ Form::submit("Update $project->title", ['class' => 'btn btn-primary']) }}
+                        <a href='{{ url("projects/") }}' class="btn btn-link">Cancel</a>
                     </div>
                 {!! Form::close() !!}
             </div>
