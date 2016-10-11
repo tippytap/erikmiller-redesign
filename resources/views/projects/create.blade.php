@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                    {!! Form::open(['route' => 'project.create']) !!}
+                    {!! Form::open(['route' => 'projects.create']) !!}
                         <div class="col-xs-12">
                             {{ Form::label('title') }}
                             {{ Form::text('title', '', ['class' => 'form-control']) }}

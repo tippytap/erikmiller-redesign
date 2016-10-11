@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Project;
+
 class ProjectsController extends Controller
 {
     /**
@@ -45,9 +47,10 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($title)
     {
-        //
+        $project = Project::find('title', $title)->first();
+        return view('projects.edit', ['project' => $project]);
     }
 
     /**
@@ -56,9 +59,10 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($title)
     {
-        //
+        $project = Project::where('title', $title)->first();
+        return view('projects.edit', ['project' => $project]);
     }
 
     /**
@@ -68,9 +72,15 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $title)
     {
-        //
+        $project = Project::where('title', $title)->first();
+        $project->title = $request->input('title');
+        $project->description = $request->input('description');
+        $project->link = $request->input('link');
+        $project->background = $request->input('background');
+        $project->save();
+        return redirect('projects');
     }
 
     /**
