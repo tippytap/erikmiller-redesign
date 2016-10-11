@@ -4,9 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                @foreach($projects as $project)
-                    <h3><a href='{{ url("/projects/$project->title") }}'>{{$project->title}}</a></h3>
-                @endforeach
+                <h3>{{ $project->title }}</h3>
+                <div class="col-xs-6">{{ $project->description }}</div>
             </div>
         </div>
     </div>

@@ -12,4 +12,6 @@ class Project extends Model
 
     protected $primaryKey = 'title';
 
+    public $incrementing = false;
+
 }

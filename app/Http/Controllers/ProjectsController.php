@@ -17,7 +17,8 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        return view('projects.home');
+        $projects = Project::all();
+        return view('projects.home', ['projects' => $projects]);
     }
 
     /**
@@ -49,8 +50,8 @@ class ProjectsController extends Controller
      */
     public function show($title)
     {
-        $project = Project::find('title', $title)->first();
-        return view('projects.edit', ['project' => $project]);
+        $project = Project::find($title);
+        return view('projects.show', ['project' => $project]);
     }
 
     /**
@@ -61,7 +62,7 @@ class ProjectsController extends Controller
      */
     public function edit($title)
     {
-        $project = Project::where('title', $title)->first();
+        $project = Project::find($title);
         return view('projects.edit', ['project' => $project]);
     }
 
@@ -74,7 +75,7 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, $title)
     {
-        $project = Project::where('title', $title)->first();
+        $project = Project::find($title);
         $project->title = $request->input('title');
         $project->description = $request->input('description');
         $project->link = $request->input('link');
