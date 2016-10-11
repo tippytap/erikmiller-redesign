@@ -77,7 +77,7 @@ class ProjectsController extends Controller
     {
         $project = Project::find($title);
         $project->title = $request->input('title');
-        $project->description = $request->input('description');
+        $project->description = htmlentities($request->input('description'));
         $project->link = $request->input('link');
         $project->background = $request->input('background');
         $project->save();
