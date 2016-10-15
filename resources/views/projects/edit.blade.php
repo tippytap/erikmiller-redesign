@@ -10,6 +10,10 @@
                         {{ Form::text('title', $project->title, ['class' => 'form-control']) }}
                     </div>
                     <div class="col-xs-12">
+                        {{ Form::label('blurb', 'Blurb') }}
+                        {{ Form::text('blurb', $project->blurb, ['class' => 'form-control']) }}
+                    </div>
+                    <div class="col-xs-12">
                         {{ Form::label('description') }}
                         {{ Form::textarea('description', $project->description, ['class' => 'form-control']) }}
                     </div>

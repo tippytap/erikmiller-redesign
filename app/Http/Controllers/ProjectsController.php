@@ -11,7 +11,6 @@ use App\Project;
 class ProjectsController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -83,6 +82,7 @@ class ProjectsController extends Controller
         $project->description = htmlentities($request->input('description'));
         $project->link = $request->input('link');
         $project->background = $request->input('background');
+        $project->blurb = $request->input('blurb');
         $project->save();
         return redirect('projects');
     }

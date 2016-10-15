@@ -19,10 +19,19 @@ Route::get('/about', function(){
    return view('about');
 });
 
-Route::group(['middleware' => 'web'], function(){
+Route::get('/projects', 'ProjectsController@index');
+Route::get('/projects/{project}', 'ProjectsController@show');
+
+Route::group(['middleware' => ['web']], function(){
 
     Route::auth();
 
-    Route::resource('projects', 'ProjectsController');
-
+    Route::group(['middleware' => 'auth'], function(){
+        Route::get('/projects/manage', 'ProjectsController@index');
+        Route::post('/projects', 'ProjectsController@store');
+        Route::get('/projects/create', 'ProjectsController@create');
+        Route::put('/projects/{project}', ['as' => 'projects.update', 'uses' => 'ProjectsController@update']);
+        Route::delete('/projects/{project}', 'ProjectsController@destroy');
+        Route::get('/projects/{project}/edit', 'ProjectsController@edit');
+    });
 });

@@ -13,14 +13,15 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                Laravel
+                Erik Miller
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/') }}">Home</a></li>
+                {{--<li><a href="{{ url('/') }}">Home</a></li>--}}
+                <li><a href="{{ url('/projects') }}">Work</a></li>
                 <li><a href="{{ url('/about') }}">About</a></li>
             </ul>
 
