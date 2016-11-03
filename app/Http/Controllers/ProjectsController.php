@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Project;
+use Storage;
 
 class ProjectsController extends Controller
 {
@@ -54,6 +55,12 @@ class ProjectsController extends Controller
     {
         $project = Project::find($title);
         return view('projects.show', ['project' => $project]);
+    }
+
+    public function getImage(Request $request){
+        $image = Storage::url('kitty.jpg');
+        $image = asset($image);
+        return response()->json(['image' => $image]);
     }
 
     /**

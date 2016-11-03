@@ -33,5 +33,6 @@ Route::group(['middleware' => ['web']], function(){
         Route::put('/projects/{project}', ['as' => 'projects.update', 'uses' => 'ProjectsController@update']);
         Route::delete('/projects/{project}', 'ProjectsController@destroy');
         Route::get('/projects/{project}/edit', 'ProjectsController@edit');
+        Route::get('/projects/{project}/getImage', 'ProjectsController@getImage');
     });
 });

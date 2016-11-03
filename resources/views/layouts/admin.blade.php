@@ -36,16 +36,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     <script type="text/javascript">
-        tinymce.init({
-            selector:'textarea',
-            plugins: 'image',
-            toolbar: 'undo redo | image bold italic underline alignleft aligncenter alignright styleselect bullist numlist outdent indent blockquote removeformat | formatselect fontselect fontsizeselect |',
-            image_list: [
-                {title: 'My image 1', value: 'http://www.tinymce.com/my1.gif'},
-                {title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif'}
-            ]
-        });
     </script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    <script src="{{ asset('js/admin.js') }}"></script>
 </body>
 </html>
