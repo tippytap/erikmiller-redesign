@@ -17,7 +17,7 @@ $.get({
         selector: 'textarea',
         plugins: 'image',
         toolbar: 'undo redo | image bold italic underline alignleft aligncenter alignright styleselect bullist numlist outdent indent blockquote removeformat | formatselect fontselect fontsizeselect |',
-        image_prepend_url: "http://localhost:8888/erikmiller-redesign/public/",
+        relative_urls: false,
         image_list: [{ title: 'kitty', value: image }]
     });
 }).fail(function (f) {

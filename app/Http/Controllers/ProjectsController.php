@@ -48,7 +48,7 @@ class ProjectsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  String  $title
      * @return \Illuminate\Http\Response
      */
     public function show($title)
@@ -59,14 +59,17 @@ class ProjectsController extends Controller
 
     public function getImage(Request $request){
         $image = Storage::url('kitty.jpg');
-        $image = asset($image);
+        $fullUrl = $request->fullUrl();
+        $explodedUrl = explode("erikmiller-redesign", $fullUrl);
+        $baseUrl = $explodedUrl[0] . substr($request->getBasePath(), 1);
+        $image = $baseUrl . $image;
         return response()->json(['image' => $image]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  String  $title
      * @return \Illuminate\Http\Response
      */
     public function edit($title)
@@ -79,7 +82,7 @@ class ProjectsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  String  $title
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $title)
@@ -97,10 +100,10 @@ class ProjectsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  String  $title
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($title)
     {
         //
     }
