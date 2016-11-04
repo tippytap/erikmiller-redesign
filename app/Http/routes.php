@@ -15,11 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function(){
-   return view('about');
-});
+Route::get('/about', 'AboutController@index');
 
 Route::get('/projects', 'ProjectsController@index');
+
 Route::get('/projects/{project}', 'ProjectsController@show');
 
 Route::group(['middleware' => ['web']], function(){
@@ -27,6 +26,10 @@ Route::group(['middleware' => ['web']], function(){
     Route::auth();
 
     Route::group(['middleware' => 'auth'], function(){
+
+        Route::get('/about/create', 'AboutController@create');
+        Route::put('/about/store', ['as' => 'about.store', 'uses' => 'AboutController@store']);
+
         Route::get('/projects/manage', 'ProjectsController@index');
         Route::post('/projects', 'ProjectsController@store');
         Route::get('/projects/create/new', 'ProjectsController@create');

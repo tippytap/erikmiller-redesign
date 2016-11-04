@@ -42,7 +42,17 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+/*        $this->validate($request, [
+            'title' => 'required|max:255',
+            'about_text' => 'required'
+        ]);
+
+        About::create([
+            'title' => $request->input('title'),
+            'about_text' => $request->input('about_text')
+        ]);
+
+        return redirect('/about');*/
     }
 
     /**
