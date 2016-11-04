@@ -29,7 +29,7 @@ Route::group(['middleware' => ['web']], function(){
     Route::group(['middleware' => 'auth'], function(){
         Route::get('/projects/manage', 'ProjectsController@index');
         Route::post('/projects', 'ProjectsController@store');
-        Route::get('/projects/create', 'ProjectsController@create');
+        Route::get('/projects/create/new', 'ProjectsController@create');
         Route::put('/projects/{project}', ['as' => 'projects.update', 'uses' => 'ProjectsController@update']);
         Route::delete('/projects/{project}', 'ProjectsController@destroy');
         Route::get('/projects/{project}/edit', 'ProjectsController@edit');

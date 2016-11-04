@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                    {!! Form::open(['route' => 'projects.create']) !!}
+                    {!! Form::open(['url' => 'projects', 'method' => 'post']) !!}
                         <div class="col-xs-12">
                             {{ Form::label('title') }}
                             {{ Form::text('title', '', ['class' => 'form-control']) }}
@@ -23,10 +23,12 @@
                         </div>
                         <div class="col-xs-12">
                             {{ Form::submit('Create Project', ['class' => 'btn btn-primary']) }}
+                            <a href="{{url('projects')}}" class="btn btn-link">Cancel</a>
                         </div>
                     {!! Form::close() !!}
 
             </div>
         </div>
     </div>
+    <script type="text/javascript">window.editable = true;</script>
 @endsection
