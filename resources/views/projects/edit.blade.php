@@ -33,4 +33,5 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">window.editable = true;</script>
 @endsection
