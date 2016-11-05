@@ -27,11 +27,14 @@
                     </div>
                     <div class="col-xs-12">
                         {{ Form::submit("Update $project->title", ['class' => 'btn btn-primary']) }}
-                        <a href='{{ url("projects/") }}' class="btn btn-link">Cancel</a>
+                        <a href='{{ url("projects/$project->title") }}' class="btn btn-link">Cancel</a>
                     </div>
                 {!! Form::close() !!}
             </div>
         </div>
     </div>
-    <script type="text/javascript">window.editable = true;</script>
+    <script type="text/javascript">
+        window.editable = true;
+        window.title = document.getElementById('title').value;
+    </script>
 @endsection

@@ -42,17 +42,25 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-/*        $this->validate($request, [
+        $this->validate($request, [
             'title' => 'required|max:255',
-            'about_text' => 'required'
+            'description' => 'required',
+            'blurb' => 'required'
         ]);
 
-        About::create([
+        $project = Project::create([
             'title' => $request->input('title'),
-            'about_text' => $request->input('about_text')
+            'description' => $request->input('description'),
+            'link' => $request->input('link'),
+            'blurb' => $request->input('blurb'),
+            'background' => $request->input('background'),
         ]);
 
-        return redirect('/about');*/
+        $message = ($project) ? "Project created successfully" : "Failed to create project";
+
+        return redirect('/projects')->with([
+            'message' => $message
+        ]);
     }
 
     /**
@@ -131,6 +139,7 @@ class ProjectsController extends Controller
      */
     public function destroy($title)
     {
-        //
+        Project::destroy($title);
+        return redirect('/projects');
     }
 }
