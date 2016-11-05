@@ -15,7 +15,7 @@
                     {{ Form::textarea('about_text', "", ['class' => 'form-control']) }}
                 </div>
                 <div class="col-xs-12">
-                    {{ Form::submit("Create about section", ['class' => 'btn btn-primary']) }}
+                    {{ Form::submit("Edit about section", ['class' => 'btn btn-primary']) }}
                     <a href='{{ url("/about") }}' class="btn btn-link">Cancel</a>
                 </div>
                 {!! Form::close() !!}
