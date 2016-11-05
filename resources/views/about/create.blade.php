@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="col-md-10 col-md-offset-1">
-                {!! Form::open(['url' => 'about.store', 'method' => 'post']) !!}
+                {!! Form::open(['url' => 'about/store', 'method' => 'post']) !!}
                 <div class="col-xs-12">
                     {{ Form::label('title', 'Title') }}
                     {{ Form::text('title', "", ['class' => 'form-control']) }}

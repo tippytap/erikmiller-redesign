@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 @foreach($projects as $project)
-                    <h3><a href='{{ url("/projects/$project->title") }}'>{{$project->title}}</a></h3>
+                    <h3><a href='{{ url("/projects/$project->title") }}'>{{str_replace("-", " ", $project->title)}}</a></h3>
                     <p>{{ $project->blurb }}</p>
                     @if(Auth::check())
                         <a href='{{ url("/projects/$project->title/edit") }}' class="btn btn-link">Edit</a>

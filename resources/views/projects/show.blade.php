@@ -17,7 +17,7 @@
                     </button>
                 {!! Form::close() !!}
                 @endif
-                <h3>{{ $project->title }}</h3>
+                <h3>{{ str_replace("-", " ", $project->title) }}</h3>
 
                 <h4>{{ $project->blurb }}</h4>
 

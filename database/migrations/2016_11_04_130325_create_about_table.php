@@ -12,7 +12,7 @@ class CreateAboutTable extends Migration
      */
     public function up()
     {
-        Schema::create('about', function (Blueprint $table) {
+        Schema::create('abouts', function (Blueprint $table) {
             $table->string('title');
             $table->text('about_text')->nullable();
             $table->primary('title');

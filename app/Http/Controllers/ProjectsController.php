@@ -48,19 +48,15 @@ class ProjectsController extends Controller
             'blurb' => 'required'
         ]);
 
-        $project = Project::create([
-            'title' => $request->input('title'),
+        Project::create([
+            'title' => str_replace(" ", "-", $request->input('title')),
             'description' => $request->input('description'),
             'link' => $request->input('link'),
             'blurb' => $request->input('blurb'),
             'background' => $request->input('background'),
         ]);
 
-        $message = ($project) ? "Project created successfully" : "Failed to create project";
-
-        return redirect('/projects')->with([
-            'message' => $message
-        ]);
+        return redirect('/projects');
     }
 
     /**
@@ -122,7 +118,7 @@ class ProjectsController extends Controller
     public function update(Request $request, $title)
     {
         $project = Project::find($title);
-        $project->title = $request->input('title');
+        $project->title = str_replace(" ", "-", $request->input('title'));
         $project->description = htmlentities($request->input('description'));
         $project->link = $request->input('link');
         $project->background = $request->input('background');

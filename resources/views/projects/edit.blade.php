@@ -7,7 +7,7 @@
                 {!! Form::model($project, ['route' => ['projects.update', $project->title], 'method' => 'put']) !!}
                     <div class="col-xs-12">
                         {{ Form::label('title', 'Title') }}
-                        {{ Form::text('title', $project->title, ['class' => 'form-control']) }}
+                        {{ Form::text('title', str_replace("-", " ", $project->title), ['class' => 'form-control']) }}
                     </div>
                     <div class="col-xs-12">
                         {{ Form::label('blurb', 'Blurb') }}
@@ -26,7 +26,7 @@
                         {{ Form::text('background', $project->background, ['class' => 'form-control']) }}
                     </div>
                     <div class="col-xs-12">
-                        {{ Form::submit("Update $project->title", ['class' => 'btn btn-primary']) }}
+                        {{ Form::submit("Update " . str_replace("-", " ", $project->title), ['class' => 'btn btn-primary']) }}
                         <a href='{{ url("projects/$project->title") }}' class="btn btn-link">Cancel</a>
                     </div>
                 {!! Form::close() !!}

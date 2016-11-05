@@ -18,7 +18,7 @@ class AboutController extends Controller
     public function index()
     {
         $about = About::all();
-        return view('about', ['about' => $about]);
+        return view('about.about', ['abouts' => $about]);
     }
 
     /**
@@ -61,8 +61,8 @@ class AboutController extends Controller
      */
     public function edit($title)
     {
-        About::find($title);
-        return view('about.edit');
+        $about = About::find($title);
+        return view('about.edit', ['about' => $about]);
     }
 
     /**

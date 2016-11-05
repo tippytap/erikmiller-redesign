@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function(){
-    return view('about.about');
-});
+Route::get('/about', 'AboutController@index');
 
 Route::get('/projects', 'ProjectsController@index');
 
@@ -29,10 +27,12 @@ Route::group(['middleware' => ['web']], function(){
 
     Route::group(['middleware' => 'auth'], function(){
 
-        Route::get('/about/getImage/{about}', 'ProjectsController@getImage');
+        Route::get('about/getImage', 'ApiController@getImage');
+        Route::get('about/{about}/getImage', 'ApiController@getImage');
 
         Route::get('/about/create', 'AboutController@create');
-        Route::put('/about/store', ['as' => 'about.store', 'uses' => 'AboutController@store']);
+        Route::post('/about/store', ['as' => 'about.store', 'uses' => 'AboutController@store']);
+        Route::get('/about/{title}/edit', 'AboutController@edit');
 
         Route::get('/projects/manage', 'ProjectsController@index');
         Route::post('/projects', 'ProjectsController@store');
@@ -40,6 +40,6 @@ Route::group(['middleware' => ['web']], function(){
         Route::put('/projects/{project}', ['as' => 'projects.update', 'uses' => 'ProjectsController@update']);
         Route::delete('/projects/{project}', ['as' => 'projects.delete', 'uses' => 'ProjectsController@destroy']);
         Route::get('/projects/{project}/edit', 'ProjectsController@edit');
-        Route::get('/projects/{project}/getImage', 'ProjectsController@getImage');
+        Route::get('/projects/{project}/getImage', 'ApiController@getImage');
     });
 });
