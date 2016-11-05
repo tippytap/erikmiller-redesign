@@ -21,7 +21,7 @@
 
                 <h4>{{ $project->blurb }}</h4>
 
-                <div class="col-xs-6">{!! html_entity_decode($project->description) !!}</div>
+                <div class="col-xs-12">{!! html_entity_decode($project->description) !!}</div>
             </div>
         </div>
     </div>
