@@ -17,8 +17,9 @@ window.admin = window.admin || {};
         tinymce.init({
             selector: 'textarea',
             plugins: 'image',
-            toolbar: 'undo redo | image bold italic underline alignleft aligncenter alignright styleselect bullist numlist outdent indent blockquote removeformat | formatselect fontselect fontsizeselect |',
+            toolbar: 'undo redo | image bold italic underline bullist numlist blockquote removeformat | alignleft aligncenter alignright outdent indent | styleselect fontselect fontsizeselect |',
             relative_urls: false,
+            menu: {},
             image_list: images
         });
     };
