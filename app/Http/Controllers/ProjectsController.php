@@ -71,30 +71,6 @@ class ProjectsController extends Controller
         return view('projects.show', ['project' => $project]);
     }
 
-    /**
-     * Returns an array of images from the project or post's directory
-     *
-     * @param  String  $title
-     * @return \Illuminate\Http\Response
-     */
-    public function getImage(Request $request, $title){
-        $dir = Storage::disk('public')->files($title);
-        $images = [];
-        $fullUrl = $request->fullUrl();
-        $explodedUrl = explode("erikmiller-redesign", $fullUrl);
-        $baseUrl = $explodedUrl[0] . substr($request->getBasePath(), 1);
-        foreach($dir as $file){
-            $explodedFile = explode('.', $file);
-            if($explodedFile[1] !== "DS_Store"){
-                $filePath = Storage::url($file);
-                $images[] = [
-                    'title' => $explodedFile[0],
-                    'value' =>"$baseUrl$filePath"
-                ];
-            }
-        }
-        return response()->json(['images' => $images]);
-    }
 
     /**
      * Show the form for editing the specified resource.

@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="container">
+        <div id="bg-img" >
+            <input type="hidden" value="{{ $project->background }}" />
+        </div>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 @if(Auth::check())
@@ -25,4 +28,7 @@
             </div>
         </div>
     </div>
+    {{--<script type="text/javascript">--}}
+        {{--$('#bg-img').css('background', )--}}
+    {{--</script>--}}
 @endsection

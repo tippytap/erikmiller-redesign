@@ -19,9 +19,7 @@ class ApiController extends Controller
     public function getImage(Request $request){
         $dir = Storage::disk('public')->files('images');
         $images = [];
-        $fullUrl = $request->fullUrl();
-        $explodedUrl = explode("erikmiller-redesign", $fullUrl);
-        $baseUrl = $explodedUrl[0] . substr($request->getBasePath(), 1);
+        $baseUrl = $request->root();
         foreach($dir as $file){
             $explodedFile = explode('.', $file);
             if($explodedFile[1] !== "DS_Store"){
