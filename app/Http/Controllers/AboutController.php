@@ -74,6 +74,13 @@ class AboutController extends Controller
      */
     public function update(Request $request, $title)
     {
+        $about = About::find($title);
+
+        $about->title = $request->input("title");
+        $about->about_text = $request->input("about_text");
+        $about->save();
+
+        return redirect('/about');
 
     }
 

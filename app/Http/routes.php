@@ -33,6 +33,7 @@ Route::group(['middleware' => ['web']], function(){
         Route::get('/about/create', 'AboutController@create');
         Route::post('/about/store', ['as' => 'about.store', 'uses' => 'AboutController@store']);
         Route::get('/about/{title}/edit', 'AboutController@edit');
+        Route::put('/about/{title}', ['as' => 'about.update', 'uses' => 'AboutController@update']);
 
         Route::get('/projects/manage', 'ProjectsController@index');
         Route::post('/projects', 'ProjectsController@store');
