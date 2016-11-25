@@ -45,7 +45,7 @@ class ProjectsController extends Controller
         $this->validate($request, [
             'title' => 'required|max:255',
             'description' => 'required',
-            'blurb' => 'required'
+            'blurb' => 'required|max:255'
         ]);
 
         Project::create([

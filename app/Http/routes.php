@@ -41,5 +41,7 @@ Route::group(['middleware' => ['web']], function(){
         Route::delete('/projects/{project}', ['as' => 'projects.delete', 'uses' => 'ProjectsController@destroy']);
         Route::get('/projects/{project}/edit', 'ProjectsController@edit');
         Route::get('/projects/{project}/getImage', 'ApiController@getImage');
+
+        Route::get('/getImage/', 'ApiController@getImage');
     });
 });

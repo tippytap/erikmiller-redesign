@@ -26,6 +26,6 @@ class CreateAboutTable extends Migration
      */
     public function down()
     {
-        Schema::drop('about');
+        Schema::drop('abouts');
     }
 }

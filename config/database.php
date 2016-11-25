@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'windows'),
 
     /*
     |--------------------------------------------------------------------------
@@ -66,7 +66,7 @@ return [
             'engine' => null,
         ],
 
-        'mysql' => [
+        'windows' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
